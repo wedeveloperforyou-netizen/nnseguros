@@ -7,7 +7,7 @@ export default function About() {
                 <div className="flex justify-center">
                     <div className="bg-white rounded-2xl p-8 shadow-sm w-full max-w-md">
                         <img
-                            src="/images/nelcy-profesional.png"
+                            src="/images/nelcy-profesional.jpg"
                             alt="Nelcy García - Asesora financiera"
                             className="w-full h-auto object-contain"
                         />
