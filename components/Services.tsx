@@ -3,7 +3,7 @@ import ServiceCard from "@/components/ServiceCard";
 
 export default function Services() {
   return (
-    <section className="py-24 bg-gray-50">
+    <section id="servicios" className="scroll-mt-24 py-16 md:py-24 py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-8">
 
         <h2 className="text-3xl md:text-4xl font-bold text-center">

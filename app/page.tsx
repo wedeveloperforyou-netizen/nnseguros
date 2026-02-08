@@ -5,6 +5,7 @@ import Contact from "@/components/Contact";
 import FeatureCarousel from "@/components/FeatureCarousel";
 import ServiceCard from "@/components/ServiceCard";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Services />
       <About />
       <Contact />
+      <Footer />
     </main>
   );
 }
