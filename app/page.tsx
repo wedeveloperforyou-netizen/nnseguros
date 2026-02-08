@@ -6,6 +6,7 @@ import FeatureCarousel from "@/components/FeatureCarousel";
 import ServiceCard from "@/components/ServiceCard";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
   return (
