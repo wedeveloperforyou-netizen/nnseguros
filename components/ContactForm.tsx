@@ -3,15 +3,11 @@ import { useState } from "react";
 import type { SyntheticEvent } from "react";
 
 export default function ContactForm() {
-  const [loading, setLoading] = useState(false);
-  const [sent, setSent] = useState(false);
-  const [error, setError] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   async function handleSubmit(e: SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
-    setLoading(true);
-    setSent(false);
-    setError(false);
+    setStatus("loading");
 
     const formData = new FormData(e.currentTarget);
 
@@ -27,14 +23,12 @@ export default function ContactForm() {
         }),
       });
 
-      if (!res.ok) throw new Error();
+      if (!res.ok) throw new Error("Request failed");
 
-      setSent(true);
+      setStatus("success");
       e.currentTarget.reset();
     } catch {
-      setError(true);
-    } finally {
-      setLoading(false);
+      setStatus("error");
     }
   }
 
@@ -52,14 +46,23 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        disabled={loading}
-        className="bg-orange-500 py-3 rounded font-semibold text-white"
+        disabled={status === "loading"}
+        className="bg-orange-500 py-3 rounded font-semibold text-white hover:bg-orange-600 transition"
       >
-        {loading ? "Enviando..." : "Enviar mensaje"}
+        {status === "loading" ? "Enviando..." : "Enviar mensaje"}
       </button>
 
-      {sent && <p className="text-green-400 text-sm text-center">✅ Mensaje enviado correctamente</p>}
-      {error && <p className="text-red-400 text-sm text-center">❌ Error al enviar el mensaje</p>}
+      {status === "success" && (
+        <p className="text-green-400 text-sm text-center mt-2">
+          ✅ ¡Mensaje enviado! Te responderé lo antes posible.
+        </p>
+      )}
+
+      {status === "error" && (
+        <p className="text-red-400 text-sm text-center mt-2">
+          ❌ Ha ocurrido un error. Inténtalo de nuevo.
+        </p>
+      )}
     </form>
   );
 }
