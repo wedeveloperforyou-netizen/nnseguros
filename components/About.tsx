@@ -42,11 +42,17 @@ export default function About() {
             </p>
           </div>
 
-          {/* CTA */}
           <a
-            href="#contacto"
-            className="inline-block mt-8 bg-orange-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-600 transition"
+            href="https://wa.me/34644198369?text=Hola%20Nelcy,%20vengo%20desde%20tu%20web%20y%20me%20gustaría%20recibir%20información%20sobre%20seguros."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 mt-8 bg-orange-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-600 transition"
           >
+            <img
+              src="/images/whatsapp.svg"
+              alt="WhatsApp"
+              className="w-6 h-6"
+            />
             Hablar conmigo
           </a>
 
